@@ -1,4 +1,4 @@
-## LoggerJS
+# LoggerJS
 
 LoggerJS is a library to help developers to use log messages while coding their apps.
 It uses, on supported browsers, the object "console" to log the messages. But, on browsers without this
@@ -6,7 +6,7 @@ tool, the LoogerJS appends a "div" on the end of document to put their messages 
 LoggerJS was created to help me to log my messages while developing a big JS app, and  can be 
 turned off (don't show messages) for deploys.
 
-# Usage
+## Usage
 
 To use, just import the lib to your project, it will add to the scope an object called "Logger"
 But, buy default, the logging won't show any message. To turn on, you must set the "debug" mode:
@@ -26,12 +26,13 @@ Now, in every place that you need to log a message, use "Logger":
 
 The caller's name will be logged within the message, to favor the recognition.
 
-# Changelog
+## Changelog
 
 - **version 2:**
   - Total rewrite: less code, more reusability.
   - Added more two funcionalities: "warn" and "error", both to log different types of messages.
   - Added the "debug" property, to turn on or off the messages.
+  - Project renamed from "Konsole" to "LoggerJS".
   
 - **version 1:**
   - Basic funcionality: "log" and "throwError".
