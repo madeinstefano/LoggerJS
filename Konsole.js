@@ -29,30 +29,28 @@
   }
   
   function support(type){
-    console.log(!!console && !!console['type'])
-    return !!console && !!console['type'];
+    return !!console && !!console[type];
   }
   
   function parseCaller(a){
-    if (a && a.callee & a.callee.caller && a.callee.caller.name){
-      return 'from: ' + a.callee.caller.name + ':';
+    if (a && a.callee && a.callee.caller && a.callee.caller.name){
+      return 'from: ' + a.callee.caller.name;
     }
     return '';
   }
   
-  function print(m,type){
+  function print(m,type,a){
     if (Konsole.debug){
       if (support(type)){
-        console.log('oie?')
-        console['type']('[' + type + '] >>>',parseCaller(arguments),m);
+        console[type]('[' + type + ']',parseCaller(a),'>>>',m);
       }else{
-        printToScreen('[' + type + '] >>>' + parseCaller(arguments) + m);
+        printToScreen('[' + type + '] ' + parseCaller(a) + ' >>> ' + m);
       }
     }
   }
   
   Konsole['warn'] = function warn(m){print(m,'warn');};
-  Konsole['log'] =  function log(m){print(m,'log');};
+  Konsole['log'] =  function log(m){print(m,'log',arguments);};
   Konsole['error'] = function error(m){print(m,'error');};
   Konsole['throwError'] = function (m){
     throw '[error thrown] >>> ' + m;
